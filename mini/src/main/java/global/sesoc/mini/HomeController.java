@@ -22,7 +22,7 @@ public class HomeController {
 	/**
 	 * 각 JSP페이지로 가기위한 컨트롤러들
 	 */
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index() {
 		
 		return "index";
