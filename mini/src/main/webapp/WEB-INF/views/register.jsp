@@ -26,6 +26,7 @@
 <script>
 $(function(){
 	$('#joinAccount').on('click', insert);
+	$('#btnJoinGoogle').on('click', googleJoin);
 	
 });
 
@@ -53,6 +54,12 @@ function insert(){
 			alert(JSON.stringify(e));
 		}
 	});
+}
+function googleJoin(){
+	var sel = confirm('"miniproject"가 "google.com"을 사용하여 로그인 하려고 합니다. 사용자에 관한 정보를 앱 및 웹사이트가 공유하게 됩니다.');
+	if (sel == true){
+		var win = window.open('${google_url}','newWin','width=300, left=0, top=0');	
+	 }
 }
 </script>
 
@@ -103,9 +110,14 @@ function insert(){
                  -->
                 
                 <hr>
-                <a href="index" class="btn btn-google btn-user btn-block">
-                  <i class="fab fa-google fa-fw"></i> Register with Google
-                </a>
+                <input type="button" class="btn btn-google btn-user btn-block" id="btnJoinGoogle" value=" Register with Google">
+        
+                
+                 <!-- <a href="${google_url}"><button id="btnJoinGoogle" class="btn btn-primary btn-round"
+                                style="width: 100%">
+                                <i class="fa fa-google" aria-hidden="true"></i>Google Login
+                            </button>
+                 </a> -->
                 <a href="index" class="btn btn-facebook btn-user btn-block">
                   <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
                 </a>

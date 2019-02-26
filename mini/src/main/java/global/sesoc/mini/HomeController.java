@@ -70,11 +70,11 @@ public class HomeController {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String register() {
 		
 		return "register";
-	}
+	}*/
 	
 	@RequestMapping(value = "/tables", method = RequestMethod.GET)
 	public String tables() {

@@ -26,6 +26,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -43,7 +44,7 @@ public class GoogleLogController {
     private OAuth2Operations oauthOperations;
  
     // 회원 가입 페이지
-    @RequestMapping(value = "/googlejoin", method = { RequestMethod.GET, RequestMethod.POST })
+    @RequestMapping(value = "/register", method = { RequestMethod.GET, RequestMethod.POST })
     public String join(HttpServletResponse response, Model model) {
  
         oauthOperations = googleConnectionFactory.getOAuthOperations();
@@ -52,9 +53,9 @@ public class GoogleLogController {
         logger.debug("{}",url);
         model.addAttribute("google_url", url);
  
-        return "googleJoin";
+        return "register";
     }
- 
+   
  
     // ------------------------------------ 구글 콜백 ----------------------------------------
     
@@ -107,7 +108,7 @@ public class GoogleLogController {
  
             e.printStackTrace();
         }
-        return "redirect:/join";
+        return "redirect:/register";
  
     }
 
