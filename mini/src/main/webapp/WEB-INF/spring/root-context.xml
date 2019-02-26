@@ -43,7 +43,8 @@
 		<constructor-arg value="qG4rSTF4cYyNXOkzXqr_rv3K"/>    
 	</bean>
 	<bean id = "googleOAuth2Parameters" class="org.springframework.social.oauth2.OAuth2Parameters">
-		<property name="scope" value="https://www.googleapis.com/auth/plus.login"></property>
+		<property name="scope" value="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile
+		 "></property>
 		<property name="redirectUri" value="http://localhost:8888/mini/googleSignInCallback"/>
 	</bean>
 	

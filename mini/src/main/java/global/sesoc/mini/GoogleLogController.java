@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class GoogleLogController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LogController.class);
+	
  //------------------------------------- 소셜 로그인      ----------------------------------------
     
     @Autowired
@@ -48,9 +49,10 @@ public class GoogleLogController {
         oauthOperations = googleConnectionFactory.getOAuthOperations();
         String url = oauthOperations.buildAuthenticateUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
         System.out.println("/googleLogin, url : " + url);
+        logger.debug("{}",url);
         model.addAttribute("google_url", url);
  
-        return "empty/member/join";
+        return "googleJoin";
     }
  
  
