@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class GoogleLogController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(LogController.class);
+	private static final Logger logger = LoggerFactory.getLogger(GoogleLogController.class);
 	
  //------------------------------------- 소셜 로그인      ----------------------------------------
     

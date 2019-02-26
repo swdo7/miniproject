@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <head>
 
   <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -17,7 +20,47 @@
 
   <!-- Custom styles for this template-->
   <link href="./resources/css/sb-admin-2.min.css" rel="stylesheet">
+  
+  <script src="./resources/js/jquery-3.3.1.min.js"></script>
+  
+  
+<script>
+$(document).ready(function(){
+	$('#loginStart').on('click', loginStart);
+	
+});
 
+function loginStart(){
+	var email = $('#exampleInputEmail').val();
+	var pw = $('#exampleInputPassword').val();
+	if(email.length == 0){
+		alert('이메일을 입력하세요.');
+		email.focus();
+		email.select();
+		return false;
+	}
+	if(pw.length == 0){
+		alert('비밀번호를 입력하세요.');
+		pw.focus();
+		pw.select();
+		return false;
+	}
+	//로그인 저장하러가기
+	$.ajax({
+		url: 'loginStart',
+		type: 'POST',
+		data: {email: email, password: pw},
+		success: function(){
+			alert('로그인 되었습니다.');
+			location.href='./';
+		},
+		error: function(e){
+			alert(JSON.stringify(e));
+		}
+	});
+}
+
+</script>
 </head>
 
 <body class="bg-gradient-primary">
@@ -37,14 +80,14 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                    <h1 class="h4 text-gray-900 mb-4">로그인</h1>
                   </div>
-                  <form class="user">
+                  <form class="user" id="user">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                      <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -52,18 +95,17 @@
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <a href="index" class="btn btn-primary btn-user btn-block">
+                    <!-- 로그인 버튼 -->
+                    <!-- 
+                    <a href="login" class="btn btn-primary btn-user btn-block">
                       Login
-                    </a>
+                    </a> -->
+                    <input type="button" class="btn btn-primary btn-user btn-block" id="loginStart" value="로그인">
+                    
                     <hr>
-                    <!-- jsp 버튼 처리 덜함 -->
                     <a href="index" class="btn btn-google btn-user btn-block">
                       <i class="fab fa-google fa-fw"></i> Login with Google
                     </a>
-                    <a href="${google_url}"><button id="btnJoinGoogle" class="btn btn-primary btn-round"
-                                style="width: 100%">
-                                <i class="fa fa-google" aria-hidden="true"></i>Google Login
-                            </button></a>
                     <a href="index" class="btn btn-facebook btn-user btn-block">
                       <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                     </a>
