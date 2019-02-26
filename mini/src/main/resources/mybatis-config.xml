@@ -4,7 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias type="global.sesoc.mini.vo.CustomerVO" alias="CustomerVO"/>
 	</typeAliases>
 	<mappers>
+		<mapper resource="customerMapper.xml"/>
 	</mappers>
 </configuration>
