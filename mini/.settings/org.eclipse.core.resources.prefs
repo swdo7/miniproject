@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//src/main/webapp/WEB-INF/views/register.jsp=UTF-8
+=======
+encoding//src/main/webapp/WEB-INF/views/login.jsp=UTF-8
+>>>>>>> 8a9b8b54ef1e2ba2fc5c58dbf8ed9c5e44dba7df

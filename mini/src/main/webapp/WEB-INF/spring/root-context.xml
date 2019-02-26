@@ -18,27 +18,33 @@
 		<property name="username" value="${user}" />
 		<property name="password" value="${password}" />
 	</bean>
-
 	<!-- 트랙잭션 관리를 위한 빈설정 -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
 	<!-- sqlSessionTemplete -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
 	</bean>
-
 	<!-- sqlSession -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-
 	<!-- file upload를 위한 bean 설정 -->
 	<bean name="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="10485760"></property>
 	</bean>		
+	<!-- Google 소셜 로그인 연결 설정 -->
+	<bean id = "googleConnectionFactory" class="org.springframework.social.google.connect.GoogleConnectionFactory">
+		<constructor-arg value="725995770769-0a07k8vuebcun52gitc17b6ept3gticc.apps.googleusercontent.com"/>
+		<constructor-arg value="qG4rSTF4cYyNXOkzXqr_rv3K"/>    
+	</bean>
+	<bean id = "googleOAuth2Parameters" class="org.springframework.social.oauth2.OAuth2Parameters">
+		<property name="scope" value="https://www.googleapis.com/auth/plus.login"></property>
+		<property name="redirectUri" value="http://localhost:8888/mini/googleSignInCallback"/>
+	</bean>
+	
 </beans>
