@@ -74,8 +74,8 @@ public class HomeController {
 	public String register() {
 		
 		return "register";
-	}*/
-	
+	}
+	*/
 	@RequestMapping(value = "/tables", method = RequestMethod.GET)
 	public String tables() {
 		

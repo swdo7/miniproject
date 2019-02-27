@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원정보 처리 SQL -->
+<mapper namespace="global.sesoc.mini.dao.CustomerMapper">
+
+	<!-- 회원 정보 저장 -->
+	<insert id="insertCustomer" parameterType="CustomerVO">
+		insert into customervo (num, name, email, password) 
+		values (customer_seq.nextval, #{name}, #{email}, #{password}) 
+	</insert>
+	
+	<!-- 로그인 아이디 검색 -->
+	<select id="searchCustomer" parameterType="String" resultType="CustomerVO">
+		select * from customervo where email = #{email}
+	</select>
+	
+</mapper>

@@ -28,6 +28,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import global.sesoc.mini.controller.LogController;
+
 
 @Controller
 public class GoogleLogController {
